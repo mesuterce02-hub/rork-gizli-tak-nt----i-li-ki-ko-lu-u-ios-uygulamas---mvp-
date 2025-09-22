@@ -63,8 +63,8 @@ export default function LessonDetailScreen() {
   const insets = useSafeAreaInsets();
 
   const lesson = useMemo<LessonContentItem | null>(() => {
-    const id = params?.lessonId ?? '';
-    const item = id && lessonsContent[id];
+    const id: string | undefined = params?.lessonId;
+    const item: LessonContentItem | undefined = id ? lessonsContent[id] : undefined;
     return item ?? null;
   }, [params?.lessonId]);
 
