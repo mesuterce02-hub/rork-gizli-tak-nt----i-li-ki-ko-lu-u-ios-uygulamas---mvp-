@@ -60,14 +60,8 @@ function useLessonMeta(): Record<string, LessonMeta> {
   }), []);
 }
 
-function generatePlaceholderParagraphs(id: string): string[] {
-  const base = '[PLACEHOLDER] Bu içerik yakında eklenecek. Bu bir yer tutucudur.';
-  const count = 6;
-  const parts: string[] = [];
-  for (let i = 0; i < count; i += 1) {
-    parts.push(`${base} (Bölüm ${id} – paragraf ${i + 1})`);
-  }
-  return parts;
+function generatePlaceholderContent(title: string): string {
+  return title || 'Yer tutucu içerik';
 }
 
 export default function LessonDetailScreen() {
@@ -80,7 +74,7 @@ export default function LessonDetailScreen() {
   const meta = metaMap[id];
   const title = providedTitle || meta?.title || 'Ders';
 
-  const paragraphs = useMemo(() => generatePlaceholderParagraphs(id || 'X'), [id]);
+  const placeholder = useMemo(() => generatePlaceholderContent(title), [title]);
 
   return (
     <>
@@ -96,9 +90,7 @@ export default function LessonDetailScreen() {
           <Text style={styles.title} numberOfLines={2} testID="lesson-title">{title}</Text>
           <Text style={styles.subtitle} testID="lesson-subtitle">Yer tutucu içerik — detayları burada göstereceğiz.</Text>
         </View>
-        {paragraphs.map((p, idx) => (
-          <Text key={`p-${idx}`} style={styles.paragraph} testID={`paragraph-${idx}`}>{p}</Text>
-        ))}
+        <Text style={styles.paragraph} testID="lesson-placeholder">{placeholder}</Text>
       </ScrollView>
     </>
   );
