@@ -33,6 +33,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color, size }) => (
             <BookOpen color={color} size={size} />
           ),
+          href: '/(tabs)/lessons',
         }}
       />
       <Tabs.Screen
