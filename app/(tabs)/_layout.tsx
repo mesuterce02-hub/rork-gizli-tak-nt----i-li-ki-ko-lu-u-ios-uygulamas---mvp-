@@ -1,7 +1,7 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Home, BookOpen, MessageCircle, User } from 'lucide-react-native';
+import { Home, BookOpen, MessageCircle, Flag } from 'lucide-react-native';
 
 const PRIMARY_COLOR = '#f19eb2';
 const SECONDARY_COLOR = '#9e868c';
@@ -46,11 +46,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="challenge"
         options={{
-          title: 'Profil',
+          title: 'Challenge',
           tabBarIcon: ({ color, size }) => (
-            <User color={color} size={size} />
+            <Flag color={color} size={size} />
           ),
         }}
       />
