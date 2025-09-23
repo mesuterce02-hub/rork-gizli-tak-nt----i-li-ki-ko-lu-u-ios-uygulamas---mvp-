@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   },
   imageAspect: {
     width: '100%',
-    aspectRatio: 9 / 16,
+    aspectRatio: 540 / 1080,
     borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.cardBackground,
