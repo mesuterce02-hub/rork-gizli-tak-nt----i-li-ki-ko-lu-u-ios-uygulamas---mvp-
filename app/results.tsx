@@ -75,7 +75,7 @@ Hemen aşağıya tıkla ve başla!`,
   },
   mevcut: {
     title: 'İlişki Analiz Raporun Hazır!',
-    diagnosis: 'Analiz Sonucun: "Sessiz Fırtına". İlişkiniz dışarıdan iyi görünüyor olabilir ama içerideki monotonluk, artan tartışmalar ve duygusal mesafe, ilişkinizi bitirebilecek bir fırtınanın habercisi.',
+    diagnosis: 'Analiz Sonucun: "Sessiz Fırtına". İlişkinizin içindeki monotonluk, artan tartışmalar ve duygusal mesafe, ilişkinizi bitirebilecek ve belkide bitirmiş bir fırtınanın habercisi.',
     cards: [
       {
         title: 'İÇSEL SEVGİ ve GEÇMİŞ',
@@ -104,13 +104,15 @@ Hemen aşağıya tıkla ve başla!`,
 
 Peki bu 3 alanı nasıl onaracaksınız?
 
-İşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki canlandırma" rehberidir. Bu uygulama sana:
+İşte AURA uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki canlandırma" rehberidir. Bu uygulama sana:
 
 O sönmüş Tutku ve Heyecanı yeniden nasıl alevlendireceğini...
 Tartışmaları bitiren, anlayışa dayalı Etkili İletişim şifrelerini...
 Ve Erkek Psikolojisinin sırlarını çözerek onun size yeniden hayranlıkla bağlanmasını sağlayacak doğru hamleleri...
 
-...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.`,
+...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.
+
+Hemen aşağıya tıkla ve başla!`,
   },
   yeni: {
     title: 'Aşk Hayatı Analiz Raporun Hazır!',
@@ -149,7 +151,9 @@ O karşı konulmaz Çekicilik Aurasını nasıl yaratacağını...
 Kökleri sağlam, sarsılmaz bir İçsel Özgüven inşa etmeyi...
 Ve Erkek Psikolojisinin sırlarını çözerek doğru erkeği anında tanımanı sağlayacak o Psikolojik Filtreyi nasıl kullanacağını...
 
-...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.`,
+...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.
+
+Hemen aşağıya tıkla ve başla!`,
   }
 };
 
