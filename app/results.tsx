@@ -9,7 +9,6 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
-import { CheckCircle2, AlertTriangle } from 'lucide-react-native';
 
 import Svg, { Circle } from 'react-native-svg';
 
@@ -155,6 +154,12 @@ export default function ResultsScreen() {
 
   const result = avatarResults[resultType];
 
+  const progressByIndex = useMemo<number[]>(() => {
+    if (resultType === 'eski') return [0.82, 0.52, 0.44, 0.12];
+    if (resultType === 'mevcut') return [0.8, 0.38, 0.49, 0.16];
+    return [0.84, 0.41, 0.47, 0.14];
+  }, [resultType]);
+
   const mainLabel = useMemo<string>(() => {
     try {
       const match = result?.diagnosis.match(/\"([^\"]+)\"/);
@@ -172,7 +177,7 @@ export default function ResultsScreen() {
 
   const renderScoreCard = (card: ScoreCard, index: number) => {
     const isGood = card.score === 'İYİ';
-    const progress = isGood ? 0.82 : 0.45;
+    const progress = progressByIndex[index] ?? (isGood ? 0.82 : 0.45);
     const size = 82;
     const strokeWidth = 10;
     const radius = (size - strokeWidth) / 2;
@@ -201,9 +206,7 @@ export default function ResultsScreen() {
               fill="none"
               strokeDasharray={`${circumference} ${circumference}`}
               strokeDashoffset={strokeDashoffset}
-              rotation={-90}
-              originX={size / 2}
-              originY={size / 2}
+              transform={`rotate(-90 ${size / 2} ${size / 2})`}
             />
           </Svg>
           <View style={styles.progressCenterLabel}>
@@ -211,11 +214,6 @@ export default function ResultsScreen() {
           </View>
         </View>
         <View style={styles.scoreHeaderMini}>
-          {isGood ? (
-            <CheckCircle2 color={Colors.accentPink} size={16} />
-          ) : (
-            <AlertTriangle color={Colors.accentYellow} size={16} />
-          )}
           <Text style={styles.scoreTitle}>{card.title}</Text>
         </View>
       </View>
@@ -376,6 +374,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 8,
+    justifyContent: 'center',
   },
   scoreTitle: {
     fontSize: 14,
