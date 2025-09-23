@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { 
   View, 
   Text, 
@@ -9,6 +9,7 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
+import { CheckCircle2, AlertTriangle, Dot } from 'lucide-react-native';
 
 interface ScoreCard {
   title: string;
@@ -116,6 +117,26 @@ export default function ResultsScreen() {
 
   const result = avatarResults[resultType];
 
+  const mainLabel = useMemo<string>(() => {
+    try {
+      const match = result?.diagnosis.match(/\"([^\"]+)\"/);
+      return match?.[1] ?? '';
+    } catch (e) {
+      console.log('parse main label error', e);
+      return '';
+    }
+  }, [result?.diagnosis]);
+
+  const focusAreas = useMemo<string[]>(() => {
+    try {
+      const weak = result?.cards?.filter(c => c.score === 'GELİŞTİRİLMESİ GEREK') ?? [];
+      return weak.map(c => c.title);
+    } catch (e) {
+      console.log('compute focus areas error', e);
+      return [];
+    }
+  }, [result?.cards]);
+
   const handleContinue = () => {
     console.log('Navigating to paywall with scores:', { eip, mip, yip, type: resultType });
     router.push(`/paywall?type=${resultType}&eip=${eip}&mip=${mip}&yip=${yip}`);
@@ -125,11 +146,18 @@ export default function ResultsScreen() {
     const isGood = card.score === 'İYİ';
     
     return (
-      <View key={index} style={[styles.scoreCard, isGood ? styles.scoreCardGood : styles.scoreCardNeedsWork]}>
+      <View key={index} style={[styles.scoreCard, isGood ? styles.scoreCardGood : styles.scoreCardNeedsWork]} testID={`score-card-${index}`}>
         <View style={styles.scoreHeader}>
-          <Text style={[styles.scoreTitle, isGood ? styles.scoreTitleGood : styles.scoreTitleNeedsWork]}>
-            {card.title}
-          </Text>
+          <View style={styles.scoreHeaderLeft}>
+            {isGood ? (
+              <CheckCircle2 color="#2E7D32" size={20} />
+            ) : (
+              <AlertTriangle color="#E65100" size={20} />
+            )}
+            <Text style={[styles.scoreTitle, isGood ? styles.scoreTitleGood : styles.scoreTitleNeedsWork]}>
+              {card.title}
+            </Text>
+          </View>
           <View style={[styles.scoreBadge, isGood ? styles.scoreBadgeGood : styles.scoreBadgeNeedsWork]}>
             <Text style={[styles.scoreText, isGood ? styles.scoreTextGood : styles.scoreTextNeedsWork]}>
               {card.score}
@@ -146,17 +174,35 @@ export default function ResultsScreen() {
       <ScrollView style={styles.scrollView} contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Text style={styles.title}>{result.title}</Text>
+
+          <View style={styles.resultBadge} testID="result-badge">
+            <Text style={styles.resultBadgeLabel}>Sonuç</Text>
+            <Text style={styles.resultBadgeValue}>{mainLabel}</Text>
+          </View>
           
           <View style={styles.diagnosisContainer}>
             <Text style={styles.diagnosisText}>{result.diagnosis}</Text>
           </View>
 
           <View style={styles.cardsContainer}>
-            <Text style={styles.cardsTitle}>İlişki Puan Kartın</Text>
+            <Text style={styles.cardsTitle}>Puan Kartın</Text>
             {result.cards.map((card, index) => renderScoreCard(card, index))}
           </View>
 
+          <View style={styles.focusContainer}>
+            <Text style={styles.focusTitle}>Öne Çıkan Odak Alanları</Text>
+            <View accessible accessibilityRole="list" style={styles.bullets} testID="results-focus-list">
+              {focusAreas.map((area, i) => (
+                <View key={`${area}-${i}`} style={styles.bulletItem} accessibilityRole="text">
+                  <Dot color={Colors.textPrimary} size={16} />
+                  <Text style={styles.bulletText}>{area}</Text>
+                </View>
+              ))}
+            </View>
+          </View>
+
           <View style={styles.solutionContainer}>
+            <Text style={styles.solutionTitle}>Ne Yapmalısın?</Text>
             <Text style={styles.solutionText}>{result.solution}</Text>
           </View>
 
@@ -204,6 +250,27 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 32,
   },
+  resultBadge: {
+    backgroundColor: '#0F172A',
+    paddingVertical: 18,
+    paddingHorizontal: 20,
+    borderRadius: 16,
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  resultBadgeLabel: {
+    color: '#A3A3A3',
+    fontSize: 12,
+    letterSpacing: 1,
+    textTransform: 'uppercase',
+  },
+  resultBadgeValue: {
+    marginTop: 6,
+    fontSize: 28,
+    lineHeight: 34,
+    fontWeight: '800',
+    color: Colors.white,
+  },
   diagnosisText: {
     fontSize: 16,
     color: Colors.textPrimary,
@@ -219,6 +286,33 @@ const styles = StyleSheet.create({
     color: Colors.textPrimary,
     textAlign: 'center',
     marginBottom: 24,
+  },
+  focusContainer: {
+    backgroundColor: Colors.cardBackground,
+    borderColor: Colors.cardBorder,
+    borderWidth: 1,
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 24,
+  },
+  focusTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  bullets: {},
+  bulletItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  bulletText: {
+    fontSize: 14,
+    color: Colors.textPrimary,
+    marginLeft: 8,
+    flexShrink: 1,
   },
   scoreCard: {
     borderRadius: 16,
@@ -248,6 +342,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 12,
+  },
+  scoreHeaderLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   scoreTitle: {
     fontSize: 16,
@@ -300,6 +398,13 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     elevation: 3,
+  },
+  solutionTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: Colors.textPrimary,
+    marginBottom: 8,
+    textAlign: 'center',
   },
   solutionText: {
     fontSize: 16,
