@@ -27,31 +27,31 @@ interface Section {
 const rawSections: Section[] = [
   {
     id: '1',
-    title: 'Bölüm 1: Yeni Bir Başlangıç: Gizli Takıntı Felsefesi',
+    title: 'Bölüm 1: Yolculuğuna Hoş Geldin: İlişkilerde Yeni Bir Çağ',
     lessons: [
-      { id: '1.1', title: 'Ders 1.1: Oyunun Kurallarını Yeniden Yazmak', description: '', duration: '', completed: false },
-      { id: '1.2', title: 'Ders 1.2: Bu Bir Kitap Değil, Bir Zihin Programıdır', description: '', duration: '', completed: false },
-      { id: '1.3', title: 'Ders 1.3: Bu Dönüşüm Yolculuğunda Seni Neler Bekliyor?', description: '', duration: '', completed: false },
+      { id: '1.1', title: 'Ders 1.1: Oyunun Kurallarını Değil, Oyunu Anlamayı Öğrenmek', description: '', duration: '', completed: false },
+      { id: '1.2', title: 'Ders 1.2: Bu Bir Taktik Kitabı Değil, Bir Anlayış Rehberidir', description: '', duration: '', completed: false },
+      { id: '1.3', title: 'Ders 1.3: Bu Yolculukta Kendini ve İlişkilerini Keşfet', description: '', duration: '', completed: false },
     ],
   },
   {
     id: '2',
-    title: 'Bölüm 2: Erkek Zihninin Derinlikleri',
+    title: 'Bölüm 2: Erkek ve Kadın Dinamiklerini Anlamak',
     lessons: [
-      { id: '2.1', title: 'Ders 2.1: Erkek ve Kadın Beyni Neden Farklı Çalışır?', description: '', duration: '', completed: false },
+      { id: '2.1', title: 'Ders 2.1: Farklılıklarımız Aslında Gücümüzdür', description: '', duration: '', completed: false },
       { id: '2.2', title: 'Ders 2.2: Bir Erkeği Gerçekten Ne Motive Eder?', description: '', duration: '', completed: false },
-      { id: '2.3', title: 'Ders 2.3: İlişkilerde Sık Yapılan İletişim Hataları', description: '', duration: '', completed: false },
+      { id: '2.3', title: 'Ders 2.3: İlişkilerde Sık Yapılan İletişim Varsayımları', description: '', duration: '', completed: false },
       { id: '2.4', title: 'Ders 2.4: Onun Çözüm Odaklılığı ve Senin Anlaşılma İhtiyacın', description: '', duration: '', completed: false },
     ],
   },
   {
     id: '3',
-    title: 'Bölüm 3: Karşı Konulmaz Bağlılığın Anahtarı',
+    title: 'Bölüm 3: Bağlanmanın Psikolojisi: Kahramanın Yoldaşı Olmak',
     lessons: [
-      { id: '3.1', title: 'Ders 3.1: Kahraman İçgüdüsü: Erkeklerin Gizli İşletim Sistemi', description: '', duration: '', completed: false },
-      { id: '3.2', title: 'Ders 3.2: Onu Kahramanın Yapacak Güçlü Hamleler', description: '', duration: '', completed: false },
-      { id: '3.3', title: 'Ders 3.3: Kahraman İçgüdüsünü Baltalayan İyi Niyetli Hatalar', description: '', duration: '', completed: false },
-      { id: '3.4', title: 'Ders 3.4: Vazgeçilmezlik Prensibi ve Bağlanma Psikolojisi', description: '', duration: '', completed: false },
+      { id: '3.1', title: 'Ders 3.1: Kahraman İçgüdüsü: Bir Erkeğin En Derin Arzusu', description: '', duration: '', completed: false },
+      { id: '3.2', title: 'Ders 3.2: Onun Kahramanı Olmanızı Sağlayacak Güçlü Yaklaşımlar', description: '', duration: '', completed: false },
+      { id: '3.3', title: 'Ders 3.3: İyi Niyetle Yapılan ve Bağlılığı Zayıflatan Hatalar', description: '', duration: '', completed: false },
+      { id: '3.4', title: 'Ders 3.4: Vazgeçilmezlik Prensibi ve Sağlıklı Bağlanma', description: '', duration: '', completed: false },
     ],
   },
   {
@@ -68,8 +68,8 @@ const rawSections: Section[] = [
     id: '5',
     title: 'Bölüm 5: İletişim Ustalığı',
     lessons: [
-      { id: '5.1', title: 'Ders 5.1: Dırdır Etmek Yerine İlham Vermek: İsteklerini İletme Sanatı', description: '', duration: '', completed: false },
-      { id: '5.2', title: 'Ders 5.2: Tartışmaları Yapıcı Sohbetlere Dönüştürmek', description: '', duration: '', completed: false },
+      { id: '5.1', title: 'Ders 5.1: Şikayet Etmek Yerine İlham Vermek: İsteklerini İletme Sanatı', description: '', duration: '', completed: false },
+      { id: '5.2', title: 'Ders 5.2: Tartışmaları Yapıcı Sohbetlere Dönüştürme Yolları', description: '', duration: '', completed: false },
       { id: '5.3', title: 'Ders 5.3: Aktif Dinleme: Sadece Duymak Değil, Anlamak', description: '', duration: '', completed: false },
       { id: '5.4', title: 'Ders 5.4: Merak Uyandıran ve Bağ Kuran Mesajlar', description: '', duration: '', completed: false },
     ],
@@ -86,18 +86,17 @@ const rawSections: Section[] = [
   },
   {
     id: '7',
-    title: 'Bölüm 7: Eski Sevgilini Geri Döndür: Yol Haritası',
+    title: 'Bölüm 7: Ayrılık Sonrası Güçlenme ve Yeniden Başlama',
     lessons: [
       { id: '7.1', title: 'Ders 7.1: Ayrılık Sonrası Erkek Psikolojisi ve Geri Dönüş Sinyalleri', description: '', duration: '', completed: false },
       { id: '7.2', title: 'Ders 7.2: Stratejik Sessizlik ve Gücünü Geri Toplama', description: '', duration: '', completed: false },
-      { id: '7.3', title: 'Ders 7.3: İlk Temas: Görünmez Kancayı Atmak', description: '', duration: '', completed: false },
-      { id: '7.4', title: 'Ders 7.4: Pişmanlık Fısıltısı ve Doğru Zamanlama', description: '', duration: '', completed: false },
-      { id: '7.5', title: 'Ders 7.5: Peki Ya Yeni Bir Sevgilisi Varsa?', description: '', duration: '', completed: false },
+      { id: '7.3', title: 'Ders 7.3: İlk Temas: Merak Uyandıran ve Sağlıklı Bir Başlangıç', description: '', duration: '', completed: false },
+      { id: '7.4', title: 'Ders 7.4: Peki Ya Yeni Bir Sevgilisi Varsa?', description: '', duration: '', completed: false },
     ],
   },
   {
     id: '8',
-    title: 'Bölüm 8: Mevcut İlişkini Kurtar ve Canlandır: Yol Haritası',
+    title: 'Bölüm 8: Mevcut İlişkini Kurtar ve Canlandır',
     lessons: [
       { id: '8.1', title: 'Ders 8.1: Monotonluk Canavarını Anlamak', description: '', duration: '', completed: false },
       { id: '8.2', title: 'Ders 8.2: Tartışmaları Anında Bitiren Yaklaşımlar', description: '', duration: '', completed: false },
@@ -107,7 +106,7 @@ const rawSections: Section[] = [
   },
   {
     id: '9',
-    title: 'Bölüm 9: Yeni Bir Aşk Yarat: Yol Haritası',
+    title: 'Bölüm 9: Yeni ve Sağlıklı Bir Aşk Yarat',
     lessons: [
       { id: '9.1', title: 'Ders 9.1: Çekim Stratejisi ve Doğru Zihniyet', description: '', duration: '', completed: false },
       { id: '9.2', title: 'Ders 9.2: Psikolojik Filtreleme ile Yanlış Erkekleri Tanıma', description: '', duration: '', completed: false },
@@ -117,15 +116,15 @@ const rawSections: Section[] = [
   },
   {
     id: '10',
-    title: 'Bölüm 10: Ustalık Taktikleri: Hızlı Başvuru Rehberi',
+    title: 'Bölüm 10: Ustalık Stratejileri: Hızlı Başvuru Rehberi',
     lessons: [
-      { id: '10.1', title: 'Ders 10.1: Pişmanlık Fısıltısının Derin Analizi', description: '', duration: '', completed: false },
+      { id: '10.1', title: 'Ders 10.1: Merak Uyandıran Mesajlar: Detaylı Analiz', description: '', duration: '', completed: false },
       { id: '10.2', title: 'Ders 10.2: Sosyal Medyayı Zekice Kullanma Sanatı', description: '', duration: '', completed: false },
       { id: '10.3', title: 'Ders 10.3: Kahraman İçgüdüsü Tetikleyicileri', description: '', duration: '', completed: false },
       { id: '10.4', title: 'Ders 10.4: Yatırım Etkisi: Ona Daha Fazla Emek Vermesini Sağlamak', description: '', duration: '', completed: false },
-      { id: '10.5', title: 'Ders 10.5: Kıskançlık Krizlerini Yönetme Sanatı', description: '', duration: '', completed: false },
+      { id: '10.5', title: 'Ders 10.5: Kıskançlık Krizlerini Sağlıklı Yönetme Sanatı', description: '', duration: '', completed: false },
     ],
-  },
+  }
 ];
 
 export default function LessonsScreen() {
