@@ -143,7 +143,7 @@ const quizData: QuizQuestion[] = [
   {
     id: 11,
     type: 'question',
-    title: 'Kontrol İsteği',
+    title: 'Etki İsteği',
     question: 'Erkeklerin ve ilişkinizin dinamiği üzerinde daha fazla kontrol ve etki sahibi olmayı ister miydiniz?',
     answers: [
       { text: 'Evet, kesinlikle!', emoji: '💪', points: {} },
@@ -178,7 +178,7 @@ const quizData: QuizQuestion[] = [
   {
     id: 14,
     type: 'question',
-    title: 'Takıntı Arzusu',
+    title: 'Tutku Arzusu',
     question: 'Sizi hayatının önceliği haline getiren ve size tutkuyla bağlı bir erkekle birlikte olma fikri size nasıl geliyor?',
     answers: [
       { text: 'Hayallerimdeki ilişki bu!', emoji: '😍', points: {} },
@@ -209,7 +209,7 @@ const quizData: QuizQuestion[] = [
     id: 17,
     type: 'question',
     title: 'Bilinen Taktikler',
-    question: 'Aşağıdaki "Onu Özletme" tekniklerinden hangilerini daha önce duydunuz veya denediniz? (Uygun olanların tümünü seçin)',
+    question: 'Aşağıdaki "Sağlıklı İlişki" tekniklerinden hangilerini daha önce duydunuz veya denediniz? (Uygun olanların tümünü seçin)',
     multiSelect: true,
     answers: [
       { text: 'Her şeye "Evet" dememek', emoji: '🚫', points: {} },
@@ -223,8 +223,8 @@ const quizData: QuizQuestion[] = [
   {
     id: 18,
     type: 'question',
-    title: 'Fiziksel Temasın Gücü',
-    question: 'Erkeklerde doğru fiziksel temasın, bağlanma hormonlarını (oksitosin gibi) harekete geçirerek size olan bağını güçlendirebileceğini biliyor muydunuz?',
+    title: 'Temasın Gücü',
+    question: 'Erkeklerde doğru temasın, bağlanma hormonlarını (oksitosin gibi) harekete geçirerek size olan bağını güçlendirebileceğini biliyor muydunuz?',
     answers: [
       { text: 'Evet, bu gücü her zaman kullanırım', emoji: '💪', points: {} },
       { text: 'Merak ettim, daha fazlasını öğrenmek isterim', emoji: '🤔', points: {} },
