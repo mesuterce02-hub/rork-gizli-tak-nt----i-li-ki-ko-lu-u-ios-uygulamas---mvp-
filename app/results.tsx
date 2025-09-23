@@ -28,7 +28,7 @@ interface AvatarResult {
 const avatarResults: Record<string, AvatarResult> = {
   eski: {
     title: 'İlişki Analiz Raporun Hazır!',
-    diagnosis: 'Analiz Sonucun: "Umutla Bekleyen". Eski ilişkini özlüyorsun ve muhtemelen onunla tekrar barışmak istiyorsun. Onu geri kazanma şansın hala var ama şu an yaptıkların onu senden daha da uzaklaştırıyor olabilir',
+    diagnosis: 'Analiz Sonucun: "Umutla Bekleyen". Eski ilişkin hala aklında olabilir. Onu geri kazanma şansın hala var ama şu an yaptıkların onu senden daha da uzaklaştırıyor olabilir. Yeni bir başlangıç istiyorsanda bu tramvayı iyileştirmelisin',
     cards: [
       {
         title: 'SEVGİ BAĞI',
@@ -51,19 +51,27 @@ const avatarResults: Record<string, AvatarResult> = {
         description: 'Onun neden uzaklaştığını, gururunun arkasında aslında ne yattığını ve hangi psikolojik tetikleyicilerin onu harekete geçireceğini henüz tam olarak çözememişsin.'
       }
     ],
-    solution: `Gördüğün gibi, umutsuz değilsin ama doğru bir yol haritasına acilen ihtiyacın var.
+    solution: `Gördüğün gibi, iki seçeneğin var.
+    
+1- Eğer eski ilişkini istiyorsan umutsuz değilsin ama doğru bir yol haritasına acilen ihtiyacın var.
+2- Eğer eski ilişkini unutup yeni bir ilişkiye girmek istiyorsan bu tramvayı kafandan silmelisin
 
-İyi haber şu ki, zayıf olarak görünen o 3 alanı ("İletişim", "Psikolojik Çekim" ve "Erkek Zihnini Anlama") güçlendirdiğinde, zaten "İYİ" olan sevgi bağın, onu sana geri getirecek en büyük silaha dönüşecek.
+İyi haber şu ki, ikisindede stratejin aynı olacak.
+
+Zayıf olarak görünen o 3 alanı, "İletişim", "Psikolojik Çekim" ve "Erkek Zihnini Anlama" güçlendirdiğinde, zaten "İYİ" olan sevgi bağın hem onu sana geri getirecek en büyük silah olacak, hemde tramva iyileşmesinin ilk adımları olacak.
 
 Peki bu 3 alanı nasıl güçlendireceksin?
 
-İşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki onarım" rehberidir. Bu uygulama sana:
+İşte AURA uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki onarım" rehberidir. Bu uygulama sana:
 
 Doğru İletişim Stratejisini kurmayı...
 O karşı konulmaz Psikolojik Çekimi yeniden yaratmayı...
 Ve Erkek Zihninin sırlarını çözerek onu sana geri döndürecek doğru hamleleri yapmayı...
+Tramva ve duygusal sallantılardan kurtulmayı
 
-...net ve kanıtlanmış yöntemlerle öğretecek.`,
+...net ve kanıtlanmış yöntemlerle öğretecek.
+
+Hemen aşağıya tıkla ve başla!`,
   },
   mevcut: {
     title: 'İlişki Analiz Raporun Hazır!',
@@ -135,7 +143,7 @@ Ve Erkek Psikolojisinin sırlarını çözerek onun size yeniden hayranlıkla ba
 
 Peki bu 3 alanı nasıl inşa edeceksin?
 
-İşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "çekim gücü yaratma" rehberidir. Bu uygulama sana:
+İşte AURA uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "çekim gücü yaratma" rehberidir. Bu uygulama sana:
 
 O karşı konulmaz Çekicilik Aurasını nasıl yaratacağını...
 Kökleri sağlam, sarsılmaz bir İçsel Özgüven inşa etmeyi...
