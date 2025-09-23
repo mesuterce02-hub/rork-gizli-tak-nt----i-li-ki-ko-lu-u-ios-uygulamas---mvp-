@@ -11,6 +11,8 @@ import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
 import { CheckCircle2, AlertTriangle } from 'lucide-react-native';
 
+import Svg, { Circle } from 'react-native-svg';
+
 interface ScoreCard {
   title: string;
   score: 'İYİ' | 'GELİŞTİRİLMESİ GEREK';
@@ -170,27 +172,52 @@ export default function ResultsScreen() {
 
   const renderScoreCard = (card: ScoreCard, index: number) => {
     const isGood = card.score === 'İYİ';
-    
+    const progress = isGood ? 0.82 : 0.45;
+    const size = 82;
+    const strokeWidth = 10;
+    const radius = (size - strokeWidth) / 2;
+    const circumference = 2 * Math.PI * radius;
+    const strokeDashoffset = circumference * (1 - progress);
+
     return (
       <View key={index} style={[styles.scoreCard, isGood ? styles.scoreCardGood : styles.scoreCardNeedsWork]} testID={`score-card-${index}`}>
-        <View style={styles.scoreHeader}>
-          <View style={styles.scoreHeaderLeft}>
-            {isGood ? (
-              <CheckCircle2 color={Colors.accentPink} size={20} />
-            ) : (
-              <AlertTriangle color={Colors.accentYellow} size={20} />
-            )}
-            <Text style={[styles.scoreTitle, isGood ? styles.scoreTitleGood : styles.scoreTitleNeedsWork]}>
-              {card.title}
-            </Text>
-          </View>
-          <View style={[styles.scoreBadge, isGood ? styles.scoreBadgeGood : styles.scoreBadgeNeedsWork]}>
-            <Text style={[styles.scoreText, isGood ? styles.scoreTextGood : styles.scoreTextNeedsWork]}>
-              {card.score}
-            </Text>
+        <View style={styles.progressWrapper}>
+          <Svg width={size} height={size}>
+            <Circle
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              stroke={Colors.cardBorder}
+              strokeWidth={strokeWidth}
+              fill="none"
+            />
+            <Circle
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              stroke={isGood ? Colors.accentPink : Colors.accentYellow}
+              strokeWidth={strokeWidth}
+              strokeLinecap="round"
+              fill="none"
+              strokeDasharray={`${circumference} ${circumference}`}
+              strokeDashoffset={strokeDashoffset}
+              rotation={-90}
+              originX={size / 2}
+              originY={size / 2}
+            />
+          </Svg>
+          <View style={styles.progressCenterLabel}>
+            <Text style={styles.progressPercentText}>{Math.round(progress * 100)}%</Text>
           </View>
         </View>
-        <Text style={styles.scoreDescription}>{card.description}</Text>
+        <View style={styles.scoreHeaderMini}>
+          {isGood ? (
+            <CheckCircle2 color={Colors.accentPink} size={16} />
+          ) : (
+            <AlertTriangle color={Colors.accentYellow} size={16} />
+          )}
+          <Text style={styles.scoreTitle}>{card.title}</Text>
+        </View>
       </View>
     );
   };
@@ -212,7 +239,9 @@ export default function ResultsScreen() {
 
           <View style={styles.cardsContainer}>
             <Text style={styles.cardsTitle}>Puan Kartın</Text>
-            {result.cards.map((card, index) => renderScoreCard(card, index))}
+            <View style={styles.grid}>
+              {result.cards.map((card, index) => renderScoreCard(card, index))}
+            </View>
           </View>
 
           <View style={styles.solutionContainer}>
@@ -303,9 +332,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 24,
   },
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
   scoreCard: {
     borderRadius: 16,
-    padding: 20,
+    padding: 14,
     marginBottom: 16,
     shadowColor: '#000',
     shadowOffset: {
@@ -315,6 +349,8 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.06,
     shadowRadius: 3,
     elevation: 2,
+    width: '48%',
+    alignItems: 'center',
   },
   scoreCardGood: {
     backgroundColor: Colors.softBackground,
@@ -336,12 +372,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  scoreHeaderMini: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 8,
+  },
   scoreTitle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    flex: 1,
-    marginLeft: 8,
+    fontSize: 14,
+    fontWeight: '700',
+    marginLeft: 6,
     color: Colors.textPrimary,
+    textAlign: 'center',
+    flexShrink: 1,
   },
   scoreTitleGood: {
     color: Colors.textPrimary,
@@ -375,6 +417,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.textPrimary,
     lineHeight: 20,
+  },
+  progressWrapper: {
+    position: 'relative',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  progressCenterLabel: {
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  progressPercentText: {
+    fontSize: 16,
+    fontWeight: '800',
+    color: Colors.textPrimary,
   },
   solutionContainer: {
     backgroundColor: Colors.softBackground,
