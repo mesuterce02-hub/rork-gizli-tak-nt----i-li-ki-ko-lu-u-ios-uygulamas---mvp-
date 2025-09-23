@@ -6,24 +6,24 @@ import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
 import { ArrowLeft } from 'lucide-react-native';
 
-export default function Intro2Screen() {
+export default function Intro3Screen() {
   const handleBack = useCallback(() => {
-    console.log('[Intro2] Back pressed');
+    console.log('[Intro3] Back pressed');
     if (router.canGoBack()) router.back();
     else router.replace('/');
   }, []);
 
   const handleContinue = useCallback(() => {
-    console.log('[Intro2] Continue -> intro3');
-    router.push('/intro3');
+    console.log('[Intro3] Continue -> quiz');
+    router.push('/quiz');
   }, []);
 
   return (
     <SafeAreaView style={styles.root}>
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false} testID="intro2-scroll">
+        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false} testID="intro3-scroll">
           <View style={styles.header}>
-            <TouchableOpacity onPress={handleBack} style={styles.backBtn} testID="intro2-back-button" accessibilityRole="button" accessibilityLabel="Geri">
+            <TouchableOpacity onPress={handleBack} style={styles.backBtn} testID="intro3-back-button" accessibilityRole="button" accessibilityLabel="Geri">
               <ArrowLeft color={Colors.textPrimary} size={28} />
             </TouchableOpacity>
             <Text style={styles.headerTitle}>AURA AI</Text>
@@ -31,8 +31,8 @@ export default function Intro2Screen() {
           </View>
 
           <View style={styles.sectionTitleWrap}>
-            <Text style={styles.title} testID="intro2-title">Hadi uygulamayı senin için kişiselleştirelim</Text>
-            <Text style={styles.paragraph} testID="intro2-paragraph">
+            <Text style={styles.title} testID="intro3-title">Hadi uygulamayı senin için kişiselleştirelim</Text>
+            <Text style={styles.paragraph} testID="intro3-paragraph">
               1 dakika süren kısa bir quiz ile ilişki dinamiklerini keşfet. İhtiyaçlarını, durumunu ve hedeflerini anlayıp sana net, uygulanabilir adımlar verelim.
             </Text>
           </View>
@@ -52,7 +52,7 @@ export default function Intro2Screen() {
         </ScrollView>
 
         <View style={styles.footer}>
-          <PrimaryButton title="Devam Et" onPress={handleContinue} style={styles.cta} testID="intro2-continue-button" />
+          <PrimaryButton title="Devam Et" onPress={handleContinue} style={styles.cta} testID="intro3-continue-button" />
         </View>
       </View>
     </SafeAreaView>
