@@ -40,7 +40,7 @@ export default function Intro3Screen() {
           <View style={styles.imageCard}>
             <View style={styles.imageAspect}> 
               <Image
-                source={{ uri: 'https://i.hizliresim.com/bor6qmt.png' }}
+                source={{ uri: 'https://i.hizliresim.com/nb8brw2.png' }}
                 style={styles.image}
                 contentFit="contain"
                 transition={200}
