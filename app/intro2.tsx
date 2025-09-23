@@ -31,7 +31,7 @@ export default function Intro2Screen() {
           </View>
 
           <View style={styles.sectionTitleWrap}>
-            <Text style={styles.title} testID="intro2-title">Hadi uygulamayı senin için kişiselleştirelim</Text>
+            <Text style={styles.title} testID="intro2-title">Sana Özel Dersler</Text>
             <Text style={styles.paragraph} testID="intro2-paragraph">
               1 dakika süren kısa bir quiz ile ilişki dinamiklerini keşfet. İhtiyaçlarını, durumunu ve hedeflerini anlayıp sana net, uygulanabilir adımlar verelim.
             </Text>
