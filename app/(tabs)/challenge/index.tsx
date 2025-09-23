@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-nati
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Flag, Lock, CheckCircle2 } from 'lucide-react-native';
-import { router, useFocusEffect } from 'expo-router';
+import { router } from 'expo-router';
 
 const PRIMARY_50 = '#fef7f8';
 const PRIMARY_100 = '#fdeff1';
@@ -52,43 +52,34 @@ export default function ChallengeScreen() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const loadProgress = useCallback(async () => {
-    try {
-      console.log('[Challenge] Loading progress from storage');
-      const raw = await AsyncStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as ProgressMap;
-        setProgress(parsed ?? {});
-      } else {
-        const initial: ProgressMap = {};
-        CHALLENGES.forEach((c) => {
-          initial[c.id] = Array.from({ length: c.days }, () => false);
-        });
-        setProgress(initial);
-      }
-    } catch (e) {
-      console.log('[Challenge] Load error', (e as Error)?.message);
-      const fallback: ProgressMap = {};
-      CHALLENGES.forEach((c) => {
-        fallback[c.id] = Array.from({ length: c.days }, () => false);
-      });
-      setProgress(fallback);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    void loadProgress();
-  }, [loadProgress]);
-
-  useFocusEffect(
-    useCallback(() => {
-      console.log('[Challenge] Screen focused -> refresh progress');
-      void loadProgress();
-      return () => {};
-    }, [loadProgress])
-  );
+    const load = async () => {
+      try {
+        console.log('[Challenge] Loading progress from storage');
+        const raw = await AsyncStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw) as ProgressMap;
+          setProgress(parsed ?? {});
+        } else {
+          const initial: ProgressMap = {};
+          CHALLENGES.forEach((c) => {
+            initial[c.id] = Array.from({ length: c.days }, () => false);
+          });
+          setProgress(initial);
+        }
+      } catch (e) {
+        console.log('[Challenge] Load error', (e as Error)?.message);
+        const fallback: ProgressMap = {};
+        CHALLENGES.forEach((c) => {
+          fallback[c.id] = Array.from({ length: c.days }, () => false);
+        });
+        setProgress(fallback);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    load();
+  }, []);
 
   const toggleExpanded = useCallback((id: string) => {
     setExpandedId((prev) => (prev === id ? null : id));
