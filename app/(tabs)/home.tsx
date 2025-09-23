@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { router } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { BookOpen, MessageCircle, User, Settings, HelpCircle, LogOut, Crown, Flag, CheckCircle2 } from 'lucide-react-native';
+import { BookOpen, MessageCircle, User, Settings, HelpCircle, LogOut, Crown, Flag } from 'lucide-react-native';
 
 const PRIMARY_50 = '#fef7f8';
 const PRIMARY_100 = '#fdeff1';
@@ -174,13 +174,7 @@ export default function HomeScreen() {
                 <Text style={styles.qaCardTitle}>{c.title}</Text>
                 <View style={styles.qaPill}><Text style={styles.qaPillText}>{percentage}%</Text></View>
               </View>
-              <View style={styles.qaDaysRow}>
-                {arr.map((done, idx) => (
-                  <View key={`${c.id}-${idx}`} style={[styles.qaDay, done ? styles.qaDayDone : undefined]} testID={`qa-day-${c.id}-${idx+1}`}>
-                    {done ? <CheckCircle2 color={'white'} size={14} /> : <Text style={styles.qaDayLabel}>{idx+1}</Text>}
-                  </View>
-                ))}
-              </View>
+
             </TouchableOpacity>
           );
         })}
@@ -344,19 +338,7 @@ const styles = StyleSheet.create({
   qaCardTitle: { fontSize: 16, fontWeight: '700', color: TEXT_900 },
   qaPill: { backgroundColor: PRIMARY_600, borderRadius: 20, paddingHorizontal: 10, paddingVertical: 6, minWidth: 56, alignItems: 'center' },
   qaPillText: { color: 'white', fontWeight: '700', fontSize: 13 },
-  qaDaysRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  qaDay: {
-    width: 36,
-    height: 36,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: BORDER,
-    backgroundColor: PRIMARY_100,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  qaDayDone: { backgroundColor: PRIMARY_600, borderColor: PRIMARY_600 },
-  qaDayLabel: { fontSize: 12, fontWeight: '700', color: TEXT_900 },
+
 
   versionContainer: { alignItems: 'center', paddingTop: 8, paddingBottom: 16 },
   versionText: { fontSize: 12, color: SECONDARY_600 },
