@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, Platform, ScrollView } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image as RNImage, Platform, ScrollView, Dimensions, PixelRatio } from 'react-native';
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
@@ -7,6 +8,32 @@ import { ArrowLeft } from 'lucide-react-native';
 
 
 export default function Intro1Screen() {
+  const [imgSize, setImgSize] = useState<{ w: number; h: number } | undefined>(undefined);
+  const [displaySize, setDisplaySize] = useState<{ w: number; h: number } | undefined>(undefined);
+
+  useEffect(() => {
+    const uri = 'https://i.hizliresim.com/f5ujr76.png';
+    RNImage.getSize(
+      uri,
+      (w: number, h: number) => {
+        console.log('[Intro1] image natural size', { w, h });
+        setImgSize({ w, h });
+        const screenW = Dimensions.get('window').width;
+        const maxW = Math.max(0, screenW - 48);
+        const dpW = Math.min(maxW, w / PixelRatio.get());
+        const ratio = h / w;
+        const dpH = dpW * ratio;
+        setDisplaySize({ w: dpW, h: dpH });
+      },
+      (err: unknown) => {
+        console.log('[Intro1] getSize error', err);
+        const screenW = Dimensions.get('window').width;
+        const maxW = Math.max(0, screenW - 48);
+        const fallbackRatio = 1080 / 540;
+        setDisplaySize({ w: maxW, h: maxW * fallbackRatio });
+      }
+    );
+  }, []);
   const handleBack = useCallback(() => {
     console.log('[Intro1] Back pressed');
     if (router.canGoBack()) router.back();
@@ -38,11 +65,12 @@ export default function Intro1Screen() {
           </View>
 
           <View style={styles.imageCard}>
-            <View style={styles.imageAspect}>
+            <View style={styles.imageFrame}>
               <Image
                 source={{ uri: 'https://i.hizliresim.com/f5ujr76.png' }}
-                style={styles.image}
-                resizeMode="cover"
+                style={[styles.image, displaySize ? { width: displaySize.w, height: displaySize.h } : undefined]}
+                contentFit="contain"
+                transition={200}
                 accessible
                 accessibilityLabel="AURA AI görsel"
               />
@@ -114,9 +142,10 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingBottom: 24,
   },
-  imageAspect: {
+  imageFrame: {
     width: '100%',
-    aspectRatio: 540 / 1080,
+    alignItems: 'center',
+    justifyContent: 'center',
     borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.cardBackground,
@@ -128,8 +157,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 6 },
   },
   image: {
-    width: '100%',
-    height: '100%',
+    alignSelf: 'center',
   },
   footer: {
     paddingHorizontal: 16,

@@ -1,11 +1,29 @@
-import React, { useCallback } from 'react';
-import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, Platform, ScrollView } from 'react-native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image as RNImage, Platform, ScrollView } from 'react-native';
+import { Image } from 'expo-image';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
 import { ArrowLeft } from 'lucide-react-native';
 
 export default function Intro2Screen() {
+  const [ar, setAr] = useState<number | undefined>(540 / 1080);
+
+  useEffect(() => {
+    const uri = 'https://i.ibb.co/fVDz7psy/2.png';
+    RNImage.getSize(
+      uri,
+      (w: number, h: number) => {
+        const ratio = w > 0 && h > 0 ? w / h : 540 / 1080;
+        console.log('[Intro2] image natural size', { w, h, ratio });
+        setAr(ratio);
+      },
+      (err: unknown) => {
+        console.log('[Intro2] getSize error', err);
+        setAr(540 / 1080);
+      }
+    );
+  }, []);
   const handleBack = useCallback(() => {
     console.log('[Intro2] Back pressed');
     if (router.canGoBack()) router.back();
@@ -37,11 +55,12 @@ export default function Intro2Screen() {
           </View>
 
           <View style={styles.imageCard}>
-            <View style={styles.imageAspect}>
+            <View style={[styles.imageAspect, { aspectRatio: ar ?? 540 / 1080 }]}> 
               <Image
                 source={{ uri: 'https://i.ibb.co/fVDz7psy/2.png' }}
                 style={styles.image}
-                resizeMode="cover"
+                contentFit="contain"
+                transition={200}
                 accessible
                 accessibilityLabel="Kişiselleştirme görseli"
               />
