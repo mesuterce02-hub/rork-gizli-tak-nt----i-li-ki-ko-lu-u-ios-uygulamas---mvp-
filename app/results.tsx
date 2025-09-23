@@ -68,7 +68,7 @@ const avatarResults: Record<string, AvatarResult> = {
       {
         title: 'ETKİLİ İLETİŞİM',
         score: 'GELİŞTİRİLMESİ GEREK',
-        description: 'Konuşmalarınız ya yüzeysel kalıyor ya da hızla birer "suçlama oyununa" dönüşüyor. Birbirinizi anlamak yerine, haklı çıkmaya çalışıyorsunuz. Bu, aranızdaki en büyük duvar.'
+        description: 'Konuşmalarınız ya yüzeysel kalıyor yada hızla birer "suçlama oyununa" dönüşüyor. Birbirinizi anlamak yerine, haklı çıkmaya çalışıyorsunuz. Bu, aranızdaki en büyük duvar.'
       },
       {
         title: 'ERKEK PSİKOLOJİSİNİ ANLAMA',
