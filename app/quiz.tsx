@@ -84,9 +84,9 @@ const quizData: QuizQuestion[] = [
     title: 'Mevcut Duygu Durumu',
     question: 'Şu an aşk hayatınız hakkında ne hissediyorsunuz?',
     answers: [
-      { text: 'Genel olarak memnunum ama daha iyi olabilir.', emoji: '😊', points: { MIP: 2 } },
-      { text: 'Aşk hayatımda kendimi daha güvende ve değerli hissetmek istiyorum.', emoji: '🌟', points: { YIP: 2, MIP: 2 } },
-      { text: 'Hak ettiğim sevgiyi ve ilgiyi gördüğümü düşünmüyorum.', emoji: '😔', points: { EIP: 3, MIP: 3 } }
+      { text: 'İlişkim devam ediyor ve ama daha iyi olabilir', emoji: '😊', points: { MIP: 2 } },
+      { text: 'Yeni bir ilişkiye adım atmak istiyorum', emoji: '🌟', points: { YIP: 2 } },
+      { text: 'Eski ilişkim aklımdan çıkmıyor ve onu özlüyorum', emoji: '😔', points: { EIP: 3 } }
     ]
   },
   {
@@ -107,8 +107,8 @@ const quizData: QuizQuestion[] = [
     question: 'Aşk hayatınızdaki en büyük zorluklar nelerdir? (Uygun olanların tümünü seçin)',
     multiSelect: true,
     answers: [
-      { text: 'Benim onu özlediğim kadar, onun beni özlemediğini hissediyorum.', emoji: '💭', points: { EIP: 3 } },
-      { text: 'Geçmişte yaşadığım reddedilme korkusu beni engelliyor.', emoji: '😨', points: { YIP: 3 } },
+      { text: 'Eski sevgilimi aklımdan çıkaramıyorum / onu özlüyorum', emoji: '💭', points: { EIP: 3 } },
+      { text: 'Yeni biriyle ilişki istiyorum ama bunu yapmaya korkuyorum', emoji: '😨', points: { YIP: 3 } },
       { text: 'Hayatıma doğru insanları çekemiyorum.', emoji: '🎯', points: { YIP: 3 } },
       { text: 'İlişkide yeterince sevildiğimi ve değerli olduğumu hissetmiyorum.', emoji: '💔', points: { EIP: 2, MIP: 2 } },
       { text: 'Aramızdaki o ilk tutkunun ve heyecanın bittiğini hissediyorum.', emoji: '🌪️', points: { MIP: 3 } }
