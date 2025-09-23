@@ -7,20 +7,20 @@ import { PrimaryButton } from '@/components/PrimaryButton';
 import { ArrowLeft } from 'lucide-react-native';
 
 export default function Intro2Screen() {
-  const [ar, setAr] = useState<number | undefined>(540 / 1080);
+  const [ar, setAr] = useState<number | undefined>(1);
 
   useEffect(() => {
     const uri = 'https://i.ibb.co/fVDz7psy/2.png';
     RNImage.getSize(
       uri,
       (w: number, h: number) => {
-        const ratio = w > 0 && h > 0 ? w / h : 540 / 1080;
+        const ratio = w > 0 && h > 0 ? w / h : 1;
         console.log('[Intro2] image natural size', { w, h, ratio });
         setAr(ratio);
       },
       (err: unknown) => {
         console.log('[Intro2] getSize error', err);
-        setAr(540 / 1080);
+        setAr(1);
       }
     );
   }, []);
@@ -55,7 +55,7 @@ export default function Intro2Screen() {
           </View>
 
           <View style={styles.imageCard}>
-            <View style={[styles.imageAspect, { aspectRatio: ar ?? 540 / 1080 }]}> 
+            <View style={[styles.imageAspect, { aspectRatio: ar ?? 1 }]}> 
               <Image
                 source={{ uri: 'https://i.ibb.co/fVDz7psy/2.png' }}
                 style={styles.image}
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   },
   imageAspect: {
     width: '100%',
-    aspectRatio: 540 / 1080,
+    aspectRatio: 1,
     borderRadius: 16,
     overflow: 'hidden',
     backgroundColor: Colors.cardBackground,
