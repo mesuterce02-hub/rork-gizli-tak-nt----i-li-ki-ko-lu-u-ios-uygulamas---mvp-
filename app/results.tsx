@@ -9,7 +9,7 @@ import {
 import { router, useLocalSearchParams } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
-import { CheckCircle2, AlertTriangle, Dot } from 'lucide-react-native';
+import { CheckCircle2, AlertTriangle } from 'lucide-react-native';
 
 interface ScoreCard {
   title: string;
@@ -42,7 +42,7 @@ const avatarResults: Record<string, AvatarResult> = {
       {
         title: 'PSİKOLOJİK ÇEKİM',
         score: 'GELİŞTİRİLMESİ GEREK',
-        description: 'Şu anki enerjin ve duruşun, onda bir "kaybetme korkusu" veya "merak" uyandırmıyor. Çekim gücünü yeniden aktive etmen ve onun gözünde tekrar o "ulaşılmaz" kadına dönüşmen gerekiyor.'
+        description: 'Şu anki enerjin ve duruşun, onda bir "kaybetme korkusu" veya "merak" uyandırmıyor. Çekim gücünü yeniden aktive etmen ve onun gözünde tekrar o "ulaşılamaz" kadına dönüşmen gerekiyor.'
       },
       {
         title: 'ERKEK ZİHNİNİ ANLAMA',
@@ -50,7 +50,7 @@ const avatarResults: Record<string, AvatarResult> = {
         description: 'Onun neden uzaklaştığını, gururunun arkasında aslında ne yattığını ve hangi psikolojik tetikleyicilerin onu harekete geçireceğini henüz tam olarak çözememişsin.'
       }
     ],
-    solution: 'Gördüğün gibi, umutsuz değilsin ama doğru bir yol haritasına acilen ihtiyacın var.\n\nİyi haber şu ki, zayıf olarak görünen o 3 alanı ("İletişim", "Psikolojik Çekim" ve "Erkek Zihnini Anlama") güçlendirdiğinde, zaten "İYİ" olan sevgi bağın, onu sana geri getirecek en büyük silaha dönüşecek.\n\nPeki bu 3 alanı nasıl güçlendireceksin?\n\nİşte \'Gizli Takıntı\' uygulaması, tam da bu \'geliştirilmesi gereken\' noktalar için tasarlanmış, adım adım bir "ilişki onarım" rehberidir. Bu uygulama sana:\n\nDoğru İletişim Stratejisini kurmayı...\nO karşı konulmaz Psikolojik Çekimi yeniden yaratmayı...\nVe Erkek Zihninin sırlarını çözerek onu sana geri döndürecek doğru hamleleri yapmayı...\n\n...net ve kanıtlanmış yöntemlerle öğretecek.'
+    solution: 'Gördüğün gibi, umutsuz değilsin ama doğru bir yol haritasına acilen ihtiyacın var.\n\nİyi haber şu ki, zayıf olarak görünen o 3 alanı ("İletişim", "Psikolojik Çekim" ve "Erkek Zihnini Anlama") güçlendirdiğinde, zaten "İYİ" olan sevgi bağın, onu sana geri getirecek en büyük silaha dönüşecek.\n\nPeki bu 3 alanı nasıl güçlendireceksin?\n\nİşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki onarım" rehberidir. Bu uygulama sana:\n\nDoğru İletişim Stratejisini kurmayı...\nO karşı konulmaz Psikolojik Çekimi yeniden yaratmayı...\nVe Erkek Zihninin sırlarını çözerek onu sana geri döndürecek doğru hamleleri yapmayı...\n\n...net ve kanıtlanmış yöntemlerle öğretecek.'
   },
   mevcut: {
     title: 'İlişki Analiz Raporun Hazır!',
@@ -77,7 +77,7 @@ const avatarResults: Record<string, AvatarResult> = {
         description: 'Partnerinizin ilgisizliğinin veya sinirliliğinin altında yatan temel psikolojik ihtiyaçları ("Kahraman İçgüdüsü" gibi) henüz tam olarak çözememişsin. Bu yüzden çabaların genellikle ters tepiyor.'
       }
     ],
-    solution: 'Gördüğün gibi, ilişkinizin temeli hala sağlam ama onu ayakta tutan kolonlar ("Tutku", "İletişim", "Anlayış") ciddi şekilde zayıflamış durumda.\n\nİyi haber şu ki, bu zayıf alanları güçlendirdiğinizde, o sağlam temel sayesinde ilişkiniz eskisinden bile daha sarsılmaz ve mutlu bir hale gelecek.\n\nPeki bu 3 alanı nasıl onaracaksınız?\n\nİşte \'Gizli Takıntı\' uygulaması, tam da bu \'geliştirilmesi gereken\' noktalar için tasarlanmış, adım adım bir "ilişki canlandırma" rehberidir. Bu uygulama sana:\n\nO sönmüş Tutku ve Heyecanı yeniden nasıl alevlendireceğini...\nTartışmaları bitiren, anlayışa dayalı Etkili İletişim şifrelerini...\nVe Erkek Psikolojisinin sırlarını çözerek onun size yeniden hayranlıkla bağlanmasını sağlayacak doğru hamleleri...\n\n...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.'
+    solution: 'Gördüğün gibi, ilişkinizin temeli hala sağlam ama onu ayakta tutan kolonlar ("Tutku", "İletişim", "Anlayış") ciddi şekilde zayıflamış durumda.\n\nİyi haber şu ki, bu zayıf alanları güçlendirdiğinizde, o sağlam temel sayesinde ilişkiniz eskisinden bile daha sarsılmaz ve mutlu bir hale gelecek.\n\nPeki bu 3 alanı nasıl onaracaksınız?\n\nİşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki canlandırma" rehberidir. Bu uygulama sana:\n\nO sönmüş Tutku ve Heyecanı yeniden nasıl alevlendireceğini...\nTartışmaları bitiren, anlayışa dayalı Etkili İletişim şifrelerini...\nVe Erkek Psikolojisinin sırlarını çözerek onun size yeniden hayranlıkla bağlanmasını sağlayacak doğru hamleleri...\n\n...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.'
   },
   yeni: {
     title: 'Aşk Hayatı Analiz Raporun Hazır!',
@@ -104,7 +104,7 @@ const avatarResults: Record<string, AvatarResult> = {
         description: 'Neden hep "yanlış" erkekleri çektiğini hiç düşündün mü? Çünkü "doğru" ve "kaliteli" erkeği daha en başından tanıyacak ve onu hayatına dahil edecek psikolojik bir radarın henüz aktif değil.'
       }
     ],
-    solution: 'Gördüğün gibi, harika bir niyetin ve doğru bir arayışın var ama bunu sonuca ulaştıracak doğru araçlara ve stratejiye ihtiyacın var.\n\nİyi haber şu ki, zayıf olarak görünen o 3 alanı ("Çekicilik Aurası", "İçsel Özgüven" ve "Psikolojik Filtreleme") güçlendirdiğinde, zaten "İYİ" olan niyetin, hayalindeki ilişkiyi gerçeğe dönüştürecek en büyük gücün olacak.\n\nPeki bu 3 alanı nasıl inşa edeceksin?\n\nİşte \'Gizli Takıntı\' uygulaması, tam da bu \'geliştirilmesi gereken\' noktalar için tasarlanmış, adım adım bir "çekim gücü yaratma" rehberidir. Bu uygulama sana:\n\nO karşı konulmaz Çekicilik Aurasını nasıl yaratacağını...\nKökleri sağlam, sarsılmaz bir İçsel Özgüven inşa etmeyi...\nVe Erkek Psikolojisinin sırlarını çözerek doğru erkeği anında tanımanı sağlayacak o Psikolojik Filtreyi nasıl kullanacağını...\n\n...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.'
+    solution: 'Gördüğün gibi, harika bir niyetin ve doğru bir arayışın var ama bunu sonuca ulaştıracak doğru araçlara ve stratejiye ihtiyacın var.\n\nİyi haber şu ki, zayıf olarak görünen o 3 alanı ("Çekicilik Aurası", "İçsel Özgüven" ve "Psikolojik Filtreleme") güçlendirdiğinde, zaten "İYİ" olan niyetin, hayalindeki ilişkiyi gerçeğe dönüştürecek en büyük gücün olacak.\n\nPeki bu 3 alanı nasıl inşa edeceksin?\n\nİşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "çekim gücü yaratma" rehberidir. Bu uygulama sana:\n\nO karşı konulmaz Çekicilik Aurasını nasıl yaratacağını...\nKökleri sağlam, sarsılmaz bir İçsel Özgüven inşa etmeyi...\nVe Erkek Psikolojisinin sırlarını çözerek doğru erkeği anında tanımanı sağlayacak o Psikolojik Filtreyi nasıl kullanacağını...\n\n...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.'
   }
 };
 
@@ -127,16 +127,6 @@ export default function ResultsScreen() {
     }
   }, [result?.diagnosis]);
 
-  const focusAreas = useMemo<string[]>(() => {
-    try {
-      const weak = result?.cards?.filter(c => c.score === 'GELİŞTİRİLMESİ GEREK') ?? [];
-      return weak.map(c => c.title);
-    } catch (e) {
-      console.log('compute focus areas error', e);
-      return [];
-    }
-  }, [result?.cards]);
-
   const handleContinue = () => {
     console.log('Navigating to paywall with scores:', { eip, mip, yip, type: resultType });
     router.push(`/paywall?type=${resultType}&eip=${eip}&mip=${mip}&yip=${yip}`);
@@ -150,9 +140,9 @@ export default function ResultsScreen() {
         <View style={styles.scoreHeader}>
           <View style={styles.scoreHeaderLeft}>
             {isGood ? (
-              <CheckCircle2 color="#2E7D32" size={20} />
+              <CheckCircle2 color={Colors.accentPink} size={20} />
             ) : (
-              <AlertTriangle color="#E65100" size={20} />
+              <AlertTriangle color={Colors.accentYellow} size={20} />
             )}
             <Text style={[styles.scoreTitle, isGood ? styles.scoreTitleGood : styles.scoreTitleNeedsWork]}>
               {card.title}
@@ -187,18 +177,6 @@ export default function ResultsScreen() {
           <View style={styles.cardsContainer}>
             <Text style={styles.cardsTitle}>Puan Kartın</Text>
             {result.cards.map((card, index) => renderScoreCard(card, index))}
-          </View>
-
-          <View style={styles.focusContainer}>
-            <Text style={styles.focusTitle}>Öne Çıkan Odak Alanları</Text>
-            <View accessible accessibilityRole="list" style={styles.bullets} testID="results-focus-list">
-              {focusAreas.map((area, i) => (
-                <View key={`${area}-${i}`} style={styles.bulletItem} accessibilityRole="text">
-                  <Dot color={Colors.textPrimary} size={16} />
-                  <Text style={styles.bulletText}>{area}</Text>
-                </View>
-              ))}
-            </View>
           </View>
 
           <View style={styles.solutionContainer}>
@@ -251,25 +229,27 @@ const styles = StyleSheet.create({
     marginBottom: 32,
   },
   resultBadge: {
-    backgroundColor: '#0F172A',
-    paddingVertical: 18,
+    backgroundColor: Colors.secondary,
+    paddingVertical: 16,
     paddingHorizontal: 20,
     borderRadius: 16,
     alignItems: 'center',
     marginBottom: 20,
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
   },
   resultBadgeLabel: {
-    color: '#A3A3A3',
+    color: Colors.textSecondary,
     fontSize: 12,
     letterSpacing: 1,
     textTransform: 'uppercase',
   },
   resultBadgeValue: {
     marginTop: 6,
-    fontSize: 28,
-    lineHeight: 34,
+    fontSize: 32,
+    lineHeight: 38,
     fontWeight: '800',
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
   diagnosisText: {
     fontSize: 16,
@@ -287,33 +267,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 24,
   },
-  focusContainer: {
-    backgroundColor: Colors.cardBackground,
-    borderColor: Colors.cardBorder,
-    borderWidth: 1,
-    borderRadius: 16,
-    padding: 20,
-    marginBottom: 24,
-  },
-  focusTitle: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: Colors.textPrimary,
-    marginBottom: 12,
-    textAlign: 'center',
-  },
-  bullets: {},
-  bulletItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  bulletText: {
-    fontSize: 14,
-    color: Colors.textPrimary,
-    marginLeft: 8,
-    flexShrink: 1,
-  },
   scoreCard: {
     borderRadius: 16,
     padding: 20,
@@ -323,19 +276,19 @@ const styles = StyleSheet.create({
       width: 0,
       height: 2,
     },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    shadowOpacity: 0.06,
+    shadowRadius: 3,
+    elevation: 2,
   },
   scoreCardGood: {
-    backgroundColor: '#E8F5E8',
-    borderColor: '#4CAF50',
-    borderWidth: 2,
+    backgroundColor: Colors.softBackground,
+    borderColor: Colors.accentPink,
+    borderWidth: 1,
   },
   scoreCardNeedsWork: {
-    backgroundColor: '#FFF3E0',
-    borderColor: '#FF9800',
-    borderWidth: 2,
+    backgroundColor: Colors.white,
+    borderColor: Colors.accentYellow,
+    borderWidth: 1,
   },
   scoreHeader: {
     flexDirection: 'row',
@@ -351,12 +304,14 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
     flex: 1,
+    marginLeft: 8,
+    color: Colors.textPrimary,
   },
   scoreTitleGood: {
-    color: '#2E7D32',
+    color: Colors.textPrimary,
   },
   scoreTitleNeedsWork: {
-    color: '#E65100',
+    color: Colors.textPrimary,
   },
   scoreBadge: {
     paddingHorizontal: 12,
@@ -365,20 +320,20 @@ const styles = StyleSheet.create({
     marginLeft: 12,
   },
   scoreBadgeGood: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: Colors.accentPink,
   },
   scoreBadgeNeedsWork: {
-    backgroundColor: '#FF9800',
+    backgroundColor: Colors.accentYellow,
   },
   scoreText: {
     fontSize: 12,
     fontWeight: 'bold',
   },
   scoreTextGood: {
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
   scoreTextNeedsWork: {
-    color: Colors.white,
+    color: Colors.textPrimary,
   },
   scoreDescription: {
     fontSize: 14,
@@ -386,30 +341,32 @@ const styles = StyleSheet.create({
     lineHeight: 20,
   },
   solutionContainer: {
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.softBackground,
     borderRadius: 16,
     padding: 20,
     marginBottom: 32,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-    elevation: 3,
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
   },
   solutionTitle: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '700',
-    color: Colors.textPrimary,
-    marginBottom: 8,
+    color: Colors.white,
     textAlign: 'center',
+    alignSelf: 'center',
+    backgroundColor: Colors.primary,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 999,
+    marginBottom: 12,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
   },
   solutionText: {
-    fontSize: 16,
+    fontSize: 17,
     color: Colors.textPrimary,
-    lineHeight: 24,
+    lineHeight: 26,
+    textAlign: 'left',
   },
   continueButton: {
     width: '100%',
