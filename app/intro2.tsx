@@ -1,53 +1,56 @@
-import React from 'react';
-import { 
-  View, 
-  Text, 
-  StyleSheet, 
-  SafeAreaView,
-  Image,
-  Dimensions 
-} from 'react-native';
+import React, { useCallback } from 'react';
+import { SafeAreaView, View, Text, StyleSheet, TouchableOpacity, Image, Platform, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 import { Colors } from '@/constants/colors';
 import { PrimaryButton } from '@/components/PrimaryButton';
-
-const { height: screenHeight } = Dimensions.get('window');
+import { ArrowLeft } from 'lucide-react-native';
 
 export default function Intro2Screen() {
-  const handleContinue = () => {
-    console.log('Navigating to quiz');
+  const handleBack = useCallback(() => {
+    console.log('[Intro2] Back pressed');
+    if (router.canGoBack()) router.back();
+    else router.replace('/');
+  }, []);
+
+  const handleContinue = useCallback(() => {
+    console.log('[Intro2] Continue -> quiz');
     router.push('/quiz');
-  };
+  }, []);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
-        <View style={styles.textSection}>
-          <Text style={styles.title}>Hadi Uygulamayı Senin İçin Kişiselleştirelim</Text>
-          <Text style={styles.subtitle}>1 dakika süren quiz ile ilişki hayatının sırlarını öğren</Text>
-          
-          <View style={styles.infoBox}>
-            <Text style={styles.infoText}>
-              Senin ihtiyaçlarını, durumunu ve ilişkinin temel hatlarını inceleyip sana ne yapman gerekeceğini söyleyen sonuçlar verelim
+    <SafeAreaView style={styles.root}>
+      <View style={styles.container}>
+        <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false} testID="intro2-scroll">
+          <View style={styles.header}>
+            <TouchableOpacity onPress={handleBack} style={styles.backBtn} testID="intro2-back-button" accessibilityRole="button" accessibilityLabel="Geri">
+              <ArrowLeft color={Colors.textPrimary} size={28} />
+            </TouchableOpacity>
+            <Text style={styles.headerTitle}>AURA AI</Text>
+            <View style={styles.headerRight} />
+          </View>
+
+          <View style={styles.sectionTitleWrap}>
+            <Text style={styles.title} testID="intro2-title">Hadi uygulamayı senin için kişiselleştirelim</Text>
+            <Text style={styles.paragraph} testID="intro2-paragraph">
+              1 dakika süren kısa bir quiz ile ilişki dinamiklerini keşfet. İhtiyaçlarını, durumunu ve hedeflerini anlayıp sana net, uygulanabilir adımlar verelim.
             </Text>
           </View>
-          
-          <PrimaryButton
-            title="Devam Et"
-            onPress={handleContinue}
-            style={styles.continueButton}
-            testID="intro2-continue-button"
-          />
-        </View>
 
-        <View style={styles.imageSection}>
-          <Image
-            source={{
-              uri: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAbFaKy8TJ-Zoxi-n0tJVzbvJjCZGH_T0vyprtXnQTCdk742V8CoyBFVIFCARAwrN8bOGQ0sFU_y5u2MMxUQWiNj-ffX3c_N7B7RqImLAzooenWVewXqTHRYBbVmHhzHSz8timFGtzqmZ-D86Lqgr0He9r5_ytbEucz5F9SFCHdLrISve6nvWCv-NXTbs1XCtZ8qzN1SMAFkAIFXCMn9PdiyI74NK743FzY3yAud80P81ar3XUuRI1T9smClLX1CMnmz_69X6zd2Qk'
-            }}
-            style={styles.image}
-            resizeMode="cover"
-          />
+          <View style={styles.imageCard}>
+            <View style={styles.imageAspect}>
+              <Image
+                source={{ uri: 'https://i.ibb.co/fVDz7psy/2.png' }}
+                style={styles.image}
+                resizeMode="cover"
+                accessible
+                accessibilityLabel="Kişiselleştirme görseli"
+              />
+            </View>
+          </View>
+        </ScrollView>
+
+        <View style={styles.footer}>
+          <PrimaryButton title="Devam Et" onPress={handleContinue} style={styles.cta} testID="intro2-continue-button" />
         </View>
       </View>
     </SafeAreaView>
@@ -55,57 +58,85 @@ export default function Intro2Screen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  root: {
     flex: 1,
     backgroundColor: Colors.background,
   },
-  content: {
+  container: {
     flex: 1,
   },
-  textSection: {
-    paddingHorizontal: 24,
-    paddingTop: 64,
+  scrollContent: {
     paddingBottom: 16,
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+    paddingTop: 8,
+    paddingBottom: 8,
+  },
+  backBtn: {
+    height: 44,
+    width: 44,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 22,
+  },
+  headerTitle: {
+    flex: 1,
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 'bold' as const,
+    color: Colors.textPrimary,
+  },
+  headerRight: {
+    width: 44,
+  },
+  sectionTitleWrap: {
+    paddingHorizontal: 24,
+    paddingTop: 8,
+    paddingBottom: 8,
   },
   title: {
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: 'bold' as const,
     color: Colors.textPrimary,
-    textAlign: 'center',
-    lineHeight: 36,
-    marginBottom: 12,
+    marginBottom: 8,
+    textAlign: 'left',
   },
-  subtitle: {
-    fontSize: 18,
-    color: Colors.textPrimary,
-    textAlign: 'center',
-    lineHeight: 26,
-    marginBottom: 24,
-  },
-  infoBox: {
-    backgroundColor: Colors.cardBackground,
-    borderColor: Colors.cardBorder,
-    borderWidth: 1,
-    borderRadius: 16,
-    padding: 16,
-    marginBottom: 24,
-  },
-  infoText: {
+  paragraph: {
     fontSize: 16,
-    color: Colors.textPrimary,
-    textAlign: 'center',
     lineHeight: 24,
+    color: Colors.textPrimary,
   },
-  continueButton: {
+  imageCard: {
+    paddingHorizontal: 24,
+    paddingTop: 16,
+    paddingBottom: 24,
+  },
+  imageAspect: {
     width: '100%',
-  },
-  imageSection: {
-    flex: 1,
-    justifyContent: 'flex-end',
+    aspectRatio: 9 / 16,
+    borderRadius: 16,
+    overflow: 'hidden',
+    backgroundColor: Colors.cardBackground,
+    borderWidth: 1,
+    borderColor: Colors.cardBorder,
+    shadowColor: Platform.OS === 'web' ? 'rgba(0,0,0,0.1)' : Colors.primary,
+    shadowOpacity: 0.2,
+    shadowRadius: 12,
+    shadowOffset: { width: 0, height: 6 },
   },
   image: {
     width: '100%',
-    height: '60%',
-    maxHeight: screenHeight * 0.6,
+    height: '100%',
+  },
+  footer: {
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+    paddingTop: 8,
+  },
+  cta: {
+    width: '100%',
   },
 });
