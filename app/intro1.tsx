@@ -40,7 +40,7 @@ export default function Intro1Screen() {
           <View style={styles.imageCard}>
             <View style={styles.imageAspect}>
               <Image
-                source={{ uri: 'https://i.ibb.co/fVDz7psy/2.png' }}
+                source={{ uri: 'https://i.ibb.co/fdjtvRWS/aaaddd.png' }}
                 style={styles.image}
                 resizeMode="cover"
                 accessible
