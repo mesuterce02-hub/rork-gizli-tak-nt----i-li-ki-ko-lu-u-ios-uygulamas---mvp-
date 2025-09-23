@@ -33,7 +33,7 @@ export default function Intro2Screen() {
           <View style={styles.sectionTitleWrap}>
             <Text style={styles.title} testID="intro2-title">Sana Özel Dersler</Text>
             <Text style={styles.paragraph} testID="intro2-paragraph">
-              İhtiyaçlarına nokta atış, özel oluşturulmuş dersler ile, uygulanabilir adımlar verelim ve ilişkini bir sonraki adıma taşıyalım.
+              İhtiyaçlarına nokta atış, özel oluşturulmuş dersler ile, uygulanabilir adımlar verelim ve ilişkini bir sonraki adıma taşıyalım. Hayallerindeki ilişki sandığından çok daha yakında olabilir!
             </Text>
           </View>
 
