@@ -50,7 +50,19 @@ const avatarResults: Record<string, AvatarResult> = {
         description: 'Onun neden uzaklaştığını, gururunun arkasında aslında ne yattığını ve hangi psikolojik tetikleyicilerin onu harekete geçireceğini henüz tam olarak çözememişsin.'
       }
     ],
-    solution: 'Gördüğün gibi, umutsuz değilsin ama doğru bir yol haritasına acilen ihtiyacın var.\n\nİyi haber şu ki, zayıf olarak görünen o 3 alanı ("İletişim", "Psikolojik Çekim" ve "Erkek Zihnini Anlama") güçlendirdiğinde, zaten "İYİ" olan sevgi bağın, onu sana geri getirecek en büyük silaha dönüşecek.\n\nPeki bu 3 alanı nasıl güçlendireceksin?\n\nİşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki onarım" rehberidir. Bu uygulama sana:\n\nDoğru İletişim Stratejisini kurmayı...\nO karşı konulmaz Psikolojik Çekimi yeniden yaratmayı...\nVe Erkek Zihninin sırlarını çözerek onu sana geri döndürecek doğru hamleleri yapmayı...\n\n...net ve kanıtlanmış yöntemlerle öğretecek.'
+    solution: `Gördüğün gibi, umutsuz değilsin ama doğru bir yol haritasına acilen ihtiyacın var.
+
+İyi haber şu ki, zayıf olarak görünen o 3 alanı ("İletişim", "Psikolojik Çekim" ve "Erkek Zihnini Anlama") güçlendirdiğinde, zaten "İYİ" olan sevgi bağın, onu sana geri getirecek en büyük silaha dönüşecek.
+
+Peki bu 3 alanı nasıl güçlendireceksin?
+
+İşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki onarım" rehberidir. Bu uygulama sana:
+
+Doğru İletişim Stratejisini kurmayı...
+O karşı konulmaz Psikolojik Çekimi yeniden yaratmayı...
+Ve Erkek Zihninin sırlarını çözerek onu sana geri döndürecek doğru hamleleri yapmayı...
+
+...net ve kanıtlanmış yöntemlerle öğretecek.`,
   },
   mevcut: {
     title: 'İlişki Analiz Raporun Hazır!',
@@ -77,7 +89,19 @@ const avatarResults: Record<string, AvatarResult> = {
         description: 'Partnerinizin ilgisizliğinin veya sinirliliğinin altında yatan temel psikolojik ihtiyaçları ("Kahraman İçgüdüsü" gibi) henüz tam olarak çözememişsin. Bu yüzden çabaların genellikle ters tepiyor.'
       }
     ],
-    solution: 'Gördüğün gibi, ilişkinizin temeli hala sağlam ama onu ayakta tutan kolonlar ("Tutku", "İletişim", "Anlayış") ciddi şekilde zayıflamış durumda.\n\nİyi haber şu ki, bu zayıf alanları güçlendirdiğinizde, o sağlam temel sayesinde ilişkiniz eskisinden bile daha sarsılmaz ve mutlu bir hale gelecek.\n\nPeki bu 3 alanı nasıl onaracaksınız?\n\nİşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki canlandırma" rehberidir. Bu uygulama sana:\n\nO sönmüş Tutku ve Heyecanı yeniden nasıl alevlendireceğini...\nTartışmaları bitiren, anlayışa dayalı Etkili İletişim şifrelerini...\nVe Erkek Psikolojisinin sırlarını çözerek onun size yeniden hayranlıkla bağlanmasını sağlayacak doğru hamleleri...\n\n...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.'
+    solution: `Gördüğün gibi, ilişkinizin temeli hala sağlam ama onu ayakta tutan kolonlar ("Tutku", "İletişim", "Anlayış") ciddi şekilde zayıflamış durumda.
+
+İyi haber şu ki, bu zayıf alanları güçlendirdiğinizde, o sağlam temel sayesinde ilişkiniz eskisinden bile daha sarsılmaz ve mutlu bir hale gelecek.
+
+Peki bu 3 alanı nasıl onaracaksınız?
+
+İşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "ilişki canlandırma" rehberidir. Bu uygulama sana:
+
+O sönmüş Tutku ve Heyecanı yeniden nasıl alevlendireceğini...
+Tartışmaları bitiren, anlayışa dayalı Etkili İletişim şifrelerini...
+Ve Erkek Psikolojisinin sırlarını çözerek onun size yeniden hayranlıkla bağlanmasını sağlayacak doğru hamleleri...
+
+...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.`,
   },
   yeni: {
     title: 'Aşk Hayatı Analiz Raporun Hazır!',
@@ -104,7 +128,19 @@ const avatarResults: Record<string, AvatarResult> = {
         description: 'Neden hep "yanlış" erkekleri çektiğini hiç düşündün mü? Çünkü "doğru" ve "kaliteli" erkeği daha en başından tanıyacak ve onu hayatına dahil edecek psikolojik bir radarın henüz aktif değil.'
       }
     ],
-    solution: 'Gördüğün gibi, harika bir niyetin ve doğru bir arayışın var ama bunu sonuca ulaştıracak doğru araçlara ve stratejiye ihtiyacın var.\n\nİyi haber şu ki, zayıf olarak görünen o 3 alanı ("Çekicilik Aurası", "İçsel Özgüven" ve "Psikolojik Filtreleme") güçlendirdiğinde, zaten "İYİ" olan niyetin, hayalindeki ilişkiyi gerçeğe dönüştürecek en büyük gücün olacak.\n\nPeki bu 3 alanı nasıl inşa edeceksin?\n\nİşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "çekim gücü yaratma" rehberidir. Bu uygulama sana:\n\nO karşı konulmaz Çekicilik Aurasını nasıl yaratacağını...\nKökleri sağlam, sarsılmaz bir İçsel Özgüven inşa etmeyi...\nVe Erkek Psikolojisinin sırlarını çözerek doğru erkeği anında tanımanı sağlayacak o Psikolojik Filtreyi nasıl kullanacağını...\n\n...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.'
+    solution: `Gördüğün gibi, harika bir niyetin ve doğru bir arayışın var ama bunu sonuca ulaştıracak doğru araçlara ve stratejiye ihtiyacın var.
+
+İyi haber şu ki, zayıf olarak görünen o 3 alanı ("Çekicilik Aurası", "İçsel Özgüven" ve "Psikolojik Filtreleme") güçlendirdiğinde, zaten "İYİ" olan niyetin, hayalindeki ilişkiyi gerçeğe dönüştürecek en büyük gücün olacak.
+
+Peki bu 3 alanı nasıl inşa edeceksin?
+
+İşte 'Gizli Takıntı' uygulaması, tam da bu 'geliştirilmesi gereken' noktalar için tasarlanmış, adım adım bir "çekim gücü yaratma" rehberidir. Bu uygulama sana:
+
+O karşı konulmaz Çekicilik Aurasını nasıl yaratacağını...
+Kökleri sağlam, sarsılmaz bir İçsel Özgüven inşa etmeyi...
+Ve Erkek Psikolojisinin sırlarını çözerek doğru erkeği anında tanımanı sağlayacak o Psikolojik Filtreyi nasıl kullanacağını...
+
+...kanıtlanmış ve uygulaması kolay yöntemlerle öğretecek.`,
   }
 };
 
